@@ -1,0 +1,10 @@
+//import globals
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./mixin.scss";
+
+//system
+@import "../App.scss";
+
+//components
+@import "../components/navBar/navbar.styles.scss";

@@ -1,0 +1,7 @@
+.navbar{
+    &-wrapper{
+        border: 1px solid;
+        height: 7rem;
+        @include flexer-horixontal-spaceEvenly();
+    }
+}

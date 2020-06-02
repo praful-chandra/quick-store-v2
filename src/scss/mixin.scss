@@ -1,5 +1,11 @@
+@mixin flexer-horixontal-spaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @mixin flexer-horixontal-spaceEvenly {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }

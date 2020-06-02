@@ -1,7 +1,58 @@
-.navbar{
-    &-wrapper{
-        border: 1px solid;
-        height: 7rem;
-        @include flexer-horixontal-spaceEvenly();
+.navbar {
+  &-wrapper {
+    height: 10rem;
+    @include flexer-horixontal-spaceBetween();
+    padding: 0 2rem;
+  }
+  &-logo {
+    width: 13rem;
+    height: 10rem;
+  }
+
+  &-searchbar {
+    font-family: 'Cabin Condensed', sans-serif;
+    width: 90rem;
+    height: 6rem;
+    background-color: $backgroundColor;
+    border-radius: 100px 0 0 100px;
+    padding: 2rem;
+    font-size: 2rem;
+    outline: none;
+
+    &-btn{
+        font-size: 2rem;
+        background-color: $backgroundColor;
+        width: 5rem;
+        height: 6rem;
+        border-radius: 0 100px 100px 0;
     }
+  }
+  &-user {
+    @include flexer-horixontal-spaceBetween();
+    font-size: 2rem;
+    & div {
+      margin-left: 2rem;
+      cursor: pointer;
+    }
+    &-cart {
+      font-family: "Righteous", cursive;
+
+      & span {
+        margin-left: 1rem;
+      }
+      &-count {
+        border: 3px solid;
+        padding: 0 0.5rem;
+      }
+    }
+
+    &-name {
+      font-family: "Cabin Condensed", sans-serif;
+      color: #5e5c5c;
+      &-bold {
+          color: #000;
+        font-weight: 700;
+      }
+    }
+  }
 }

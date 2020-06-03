@@ -9,7 +9,7 @@ export default function HomepageComponentLeft() {
 
     const [selectedItem,selectedItemHandler] = useState(0);
 
-    const items = ["Best Selling","women","Kids"];
+    const items = ["Best Selling","women","Men","Kids"];
 
 
 

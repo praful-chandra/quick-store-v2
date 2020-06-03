@@ -1,10 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart,faSearch} from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar() {
+
+    const [scroll,scrollHandler] = useState(window.scrollY);
+
+    window.onscroll = (e) => {
+        scrollHandler(window.scrollY);
+      };
+
     return (
-        <div className="navbar-wrapper">
+        <div className="navbar-wrapper" style={{
+            boxShadow: scroll > 50 ? "0px 10px 30px #aaa" : "",
+          }}>
             <img src={require("../../assets/Logo.png")} alt="quick store" className="navbar-logo"/>
             <form>
                 <input type="search" name="search" id="search" className="navbar-searchbar" placeholder="Search for : items, categories, brands, etc"/>

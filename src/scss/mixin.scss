@@ -22,3 +22,17 @@
     justify-content: center;
     flex-direction: column;
 }
+
+@mixin  flexer-vertical-spaceEvenly {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+@mixin  flexer-vertical-start-spaceEvenly {
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}

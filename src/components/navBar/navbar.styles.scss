@@ -1,9 +1,13 @@
 .navbar {
   &-wrapper {
-    height: 10rem;
+    height: 8rem;
+    width: 100%;
     @include flexer-horizontal-spaceBetween();
     padding: 0 2rem;
-
+    position: fixed;
+    background-color: #fff;
+    z-index: 9999;
+    // margin-bottom: 10rem;
 
   }
   &-logo {

@@ -43,4 +43,11 @@
             float: right;
         }
     }
+
+    &-itemgrid{
+        margin: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+        grid-gap: 3rem;
+    }
 }

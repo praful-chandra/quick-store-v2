@@ -1,12 +1,15 @@
 .navbar {
   &-wrapper {
     height: 10rem;
-    @include flexer-horixontal-spaceBetween();
+    @include flexer-horizontal-spaceBetween();
     padding: 0 2rem;
+
+
   }
   &-logo {
     width: 13rem;
     height: 10rem;
+    margin-right: 15rem;
   }
 
   &-searchbar {
@@ -18,6 +21,7 @@
     padding: 2rem;
     font-size: 2rem;
     outline: none;
+    justify-items: center;
 
     &-btn{
         font-size: 2rem;
@@ -28,7 +32,7 @@
     }
   }
   &-user {
-    @include flexer-horixontal-spaceBetween();
+    @include flexer-horizontal-spaceBetween();
     font-size: 2rem;
     & div {
       margin-left: 2rem;
@@ -56,3 +60,15 @@
     }
   }
 }
+
+
+//* ------------------------------------ RESPONSIVE ----------------------------------------------------
+
+@media only screen and (max-width: 930px) {
+  .navbar-searchbar{
+    width: 60rem;
+  }
+}
+
+
+//* ------------------------------------ RESPONSIVE ----------------------------------------------------

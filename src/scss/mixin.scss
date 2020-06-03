@@ -1,11 +1,24 @@
-@mixin flexer-horixontal-spaceBetween {
+@mixin flexer-horizontal-spaceBetween {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-@mixin flexer-horixontal-spaceEvenly {
+@mixin flexer-horizontal-spaceEvenly {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+@mixin flexer-horizontal-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexer-vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

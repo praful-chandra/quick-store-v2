@@ -1,0 +1,21 @@
+.mainbanner {
+  &-wrapper {
+    @include flexer-horizontal-center();
+    margin: 2rem 0;
+    width: 100%;
+
+  }
+  &-body {
+    width: 70%;
+    height: 25rem;
+    border-radius: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: #fff;
+    font-size: 6rem;
+    @include flexer-horizontal-center();
+    font-family: "Permanent Marker", cursive;
+  }
+}

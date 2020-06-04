@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ItemBar from "../../components/itembar/itembar.component";
-import SmallBanner from "../../components/banner/smallBanner/smallBanner.component";
-import BigItem from "../../components/bigitem/bigitem.component";
-import BigBanner from "../../components/banner/bigBanner/bigbanner.component";
+import ItemBar from "../../../components/itembar/itembar.component";
+import SmallBanner from "../../../components/banner/smallBanner/smallBanner.component";
+import BigItem from "../../../components/bigitem/bigitem.component";
+import BigBanner from "../../../components/banner/bigBanner/bigbanner.component";
 
 
 export default function WhatsNew() {

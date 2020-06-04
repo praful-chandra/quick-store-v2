@@ -1,41 +1,40 @@
-import React, { useState } from "react";
-import {withRouter} from "react-router-dom";
+import React from "react";
+import {connect} from "react-redux";
+
+import {changeTab} from "../../redux/action/subNav.action";
 
  function SubNavbar(props) {
-  const [selected, selectedHandler] = useState(-1);
-
   return (
     <div className="subnavbar-wrapper">
       <ul>
         <li
-          className={`${selected === 0 ? "subnavbar-selected" : ""} pointer`}
+          className={`${props.subNav.tab === 0 ? "subnavbar-selected" : ""} pointer`}
           onClick={() => {
-            selectedHandler(0);
-            props.history.push("/new")
+            props.changeTab(0);
           }}
         >
           What's New
         </li>
         <li
-          className={`${selected === 1 ? "subnavbar-selected" : ""} pointer`}
+          className={`${props.subNav.tab === 1 ? "subnavbar-selected" : ""} pointer`}
           onClick={() => {
-            selectedHandler(1);
+            props.changeTab(1);
           }}
         >
           Category
         </li>
         <li
-          className={`${selected === 2 ? "subnavbar-selected" : ""} pointer`}
+          className={`${props.subNav.tab === 2 ? "subnavbar-selected" : ""} pointer`}
           onClick={() => {
-            selectedHandler(2);
+            props.changeTab(2);
           }}
         >
           Campaign
         </li>
         <li
-          className={`${selected === 3 ? "subnavbar-selected" : ""} pointer`}
+          className={`${props.subNav.tab === 3 ? "subnavbar-selected" : ""} pointer`}
           onClick={() => {
-            selectedHandler(3);
+            props.changeTab(3);
           }}
         >
           Sales
@@ -45,5 +44,8 @@ import {withRouter} from "react-router-dom";
   );
 }
 
+const mapStateToProps = state =>({
+  subNav : state.subNav
+})
 
-export default withRouter(SubNavbar);
+export default connect(mapStateToProps,{changeTab})(SubNavbar);

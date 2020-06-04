@@ -21,9 +21,13 @@
 @import "../components/itembar/itembar.styles.scss";
 @import "../components/bigitem/bigitem.styles.scss";
 @import "../components/banner/bigBanner/bigbanner.styles.scss";
+@import "../components/footer/footer.styles.scss";
+
+
 //subcomponents
 @import "../screen/homepage/homepage-content/homepage-content.styles.scss";
 
 //screens
 @import "../screen/homepage/homepage.styles.scss";
-@import "../screen/whatsnew/whatsnew.styles.scss";
+@import "../screen/homepage/whatsnew/whatsnew.styles.scss";
+@import "../screen/homepage/mainPage/mainPage.style.scss";

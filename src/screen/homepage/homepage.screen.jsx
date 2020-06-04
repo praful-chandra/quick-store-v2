@@ -5,12 +5,16 @@ import SubNavBar from "../../components/subNavBar/subnavbar.component";
 
 import MainPage from "./mainPage/mainpage.screen";
 import WhatsNewScreen from "./whatsnew/whatsnew.screen";
+import CategoriesScreen from "./categories/categories.screen";
 
 class HomePage extends Component {
   renderTab = () => {
     switch (this.props.subNav.tab) {
       case 0:
         return <WhatsNewScreen />;
+
+      case 1:
+        return <CategoriesScreen />;
 
       default:
         return <MainPage />;
@@ -19,7 +23,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="homepage-wrapper">
         <SubNavBar />
         {this.renderTab()}
       </div>

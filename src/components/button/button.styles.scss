@@ -1,0 +1,13 @@
+.button{
+    &-wrapper{
+        font-size: 3rem;
+        background-color: $primaryColor;
+        color: #fff;
+        text-transform: uppercase;
+        @include flexer-horizontal-center();
+        padding: 2rem 0;
+        margin: 1rem 0;
+        font-family: 'Bebas Neue', cursive;
+        cursor: pointer;
+    }
+}

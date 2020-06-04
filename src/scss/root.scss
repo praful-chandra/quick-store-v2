@@ -22,12 +22,15 @@
 @import "../components/bigitem/bigitem.styles.scss";
 @import "../components/banner/bigBanner/bigbanner.styles.scss";
 @import "../components/footer/footer.styles.scss";
+@import "../components/button/button.styles.scss";
 
 
 //subcomponents
 @import "../screen/homepage/homepage-content/homepage-content.styles.scss";
+@import "../components/category/category-popular/category-popular.styles.scss";
 
 //screens
 @import "../screen/homepage/homepage.styles.scss";
 @import "../screen/homepage/whatsnew/whatsnew.styles.scss";
 @import "../screen/homepage/mainPage/mainPage.style.scss";
+@import "../screen/homepage/categories/categories.style.scss";

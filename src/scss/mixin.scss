@@ -30,9 +30,16 @@
     flex-direction: column;
 }
 
+@mixin  flexer-vertical-spaceArround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
 @mixin  flexer-vertical-start-spaceEvenly {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-evenly;
     flex-direction: column;
 }

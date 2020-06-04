@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import {withRouter} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart,faSearch} from "@fortawesome/free-solid-svg-icons";
 
-export default function NavBar() {
+function NavBar(props) {
 
     const [scroll,scrollHandler] = useState(window.scrollY);
 
@@ -14,7 +15,10 @@ export default function NavBar() {
         <div className="navbar-wrapper" style={{
             boxShadow: scroll > 50 ? "0px 10px 30px #aaa" : "",
           }}>
-            <img src={require("../../assets/Logo.png")} alt="quick store" className="navbar-logo"/>
+            <img src={require("../../assets/Logo.png")} alt="quick store" className="navbar-logo pointer" onClick={()=>{
+                props.history.push("/");
+            }}/>
+           
             <form>
                 <input type="search" name="search" id="search" className="navbar-searchbar" placeholder="Search for : items, categories, brands, etc"/>
                 <button className="navbar-searchbar-btn pointer" type="submit">
@@ -39,3 +43,5 @@ export default function NavBar() {
         </div>
     )
 }
+
+export default withRouter(NavBar);

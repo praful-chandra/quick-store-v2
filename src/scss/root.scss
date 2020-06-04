@@ -13,13 +13,17 @@
 //components
 @import "../components/navBar/navbar.styles.scss";
 @import "../components/subNavBar/subnavbar.styles.scss";
-@import "../components/mainBanner/mainbanner.styles.scss";
+@import "../components/banner/mainBanner/mainbanner.styles.scss";
 @import "../components/actionbar/actionbar.styles.scss";
 @import "../components/productItem/productitem.styles.scss";
 @import "../components/hollowButton/hollowbutton.styles.scss";
-
+@import "../components/banner/smallBanner/smallBanner.style.scss";
+@import "../components/itembar/itembar.styles.scss";
+@import "../components/bigitem/bigitem.styles.scss";
+@import "../components/banner/bigBanner/bigbanner.styles.scss";
 //subcomponents
 @import "../screen/homepage/homepage-content/homepage-content.styles.scss";
 
 //screens
 @import "../screen/homepage/homepage.styles.scss";
+@import "../screen/whatsnew/whatsnew.styles.scss";

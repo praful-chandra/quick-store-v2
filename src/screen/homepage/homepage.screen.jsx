@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MainBanner from "../../components/mainBanner/mainBanner.component";
+import MainBanner from "../../components/banner/mainBanner/mainBanner.component";
 
 import HomepageContent from "./homepage-content/homepage-content.component";
 

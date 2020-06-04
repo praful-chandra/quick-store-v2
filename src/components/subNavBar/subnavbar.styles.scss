@@ -15,4 +15,9 @@
         }
     }
   }
+
+  &-selected{
+    border-bottom: 3px solid $primaryColor;
+    color: #000;
+  }
 }

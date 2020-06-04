@@ -1,6 +1,6 @@
 import React from 'react'
 
-import bannerPlaceholder from "../../assets/banner-placeholder.jpg";
+import bannerPlaceholder from "../../../assets/banner-placeholder.jpg";
 
 export default function MainBanner() {
     return (

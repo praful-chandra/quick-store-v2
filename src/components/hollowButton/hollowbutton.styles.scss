@@ -4,7 +4,7 @@
         font-size: 3rem;
         text-transform: uppercase;
         font-family: 'Righteous', cursive;
-        border: 5px solid $primaryColor;
+        border: 5px solid;
         text-align: center;
         margin: 5rem auto;
         padding: 2rem 3rem;
@@ -13,6 +13,7 @@
         &:hover{
             color: #fff;
             background-color: $primaryColor;
+            border: 5px solid $primaryColor;
         }
     }
 }

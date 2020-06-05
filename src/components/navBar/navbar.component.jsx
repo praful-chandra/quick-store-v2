@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart,faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +19,8 @@ function NavBar(props) {
             boxShadow: scroll > 50 ? "0px 10px 30px #aaa" : "",
           }}>
             <img src={require("../../assets/Logo.png")} alt="quick store" className="navbar-logo pointer" onClick={()=>{
-                props.changeTab(-1);
+                props.changeTab(1);
+                props.history.push("/");
             }}/>
            
             <form>
@@ -46,4 +48,4 @@ function NavBar(props) {
     )
 }
 
-export default connect(null,{changeTab})(NavBar);
+export default connect(null,{changeTab})(withRouter(NavBar));

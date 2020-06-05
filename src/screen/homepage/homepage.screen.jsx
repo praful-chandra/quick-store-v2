@@ -15,11 +15,13 @@ class HomePage extends Component {
         return <WhatsNewScreen />;
 
       case 1:
+        return <MainPage />;
+
+      case 2:
         return <CategoriesScreen />;
-
-        case 2:
-          return <CampaignScreen />
-
+        
+      case 3:
+        return <CampaignScreen />;
       default:
         return <MainPage />;
     }

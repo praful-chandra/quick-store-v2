@@ -72,4 +72,25 @@
         
     }
   }
+
+  
+
+}
+
+
+.categorypopularthumb{
+ &-right{
+   &-image{
+    position: absolute;
+    right: 0;
+   }
+   &-imageborder{
+     left: 0;
+
+     &-shadow{
+       left: 0;
+     }
+   }
+
+ }
 }

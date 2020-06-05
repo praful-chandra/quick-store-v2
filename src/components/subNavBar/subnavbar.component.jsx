@@ -29,16 +29,16 @@ import {changeTab} from "../../redux/action/subNav.action";
             props.changeTab(2);
           }}
         >
-          Campaign
+          Campaigns
         </li>
-        <li
+        {/* <li
           className={`${props.subNav.tab === 3 ? "subnavbar-selected" : ""} pointer`}
           onClick={() => {
             props.changeTab(3);
           }}
         >
           Sales
-        </li>
+        </li> */}
       </ul>
     </div>
   );

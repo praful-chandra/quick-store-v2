@@ -23,7 +23,7 @@
 @import "../components/banner/bigBanner/bigbanner.styles.scss";
 @import "../components/footer/footer.styles.scss";
 @import "../components/button/button.styles.scss";
-
+@import "../components/campaigncard/campaignCard.style.scss";
 
 //subcomponents
 @import "../screen/homepage/homepage-content/homepage-content.styles.scss";
@@ -34,3 +34,5 @@
 @import "../screen/homepage/whatsnew/whatsnew.styles.scss";
 @import "../screen/homepage/mainPage/mainPage.style.scss";
 @import "../screen/homepage/categories/categories.style.scss";
+@import "../screen/homepage/campaign/campaign.style.scss";
+

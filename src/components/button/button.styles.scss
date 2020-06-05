@@ -5,9 +5,16 @@
         color: #fff;
         text-transform: uppercase;
         @include flexer-horizontal-center();
-        padding: 2rem 0;
+        padding: 1.5rem 0;
         margin: 1rem 0;
         font-family: 'Bebas Neue', cursive;
         cursor: pointer;
+        border: 5px solid $primaryColor;
+        transition: all 0.25s ease-in;
+        &:hover{
+            color: $primaryColor;
+            background-color: #fff;
+            border: 5px solid $primaryColor;
+        }
     }
 }

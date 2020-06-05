@@ -6,6 +6,7 @@ import SubNavBar from "../../components/subNavBar/subnavbar.component";
 import MainPage from "./mainPage/mainpage.screen";
 import WhatsNewScreen from "./whatsnew/whatsnew.screen";
 import CategoriesScreen from "./categories/categories.screen";
+import CampaignScreen from "./campaign/campaign.screen";
 
 class HomePage extends Component {
   renderTab = () => {
@@ -15,6 +16,9 @@ class HomePage extends Component {
 
       case 1:
         return <CategoriesScreen />;
+
+        case 2:
+          return <CampaignScreen />
 
       default:
         return <MainPage />;

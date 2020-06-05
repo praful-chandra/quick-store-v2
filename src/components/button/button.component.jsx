@@ -8,6 +8,7 @@ export default function Button(props) {
         width: props.size || "20rem",
         color: props.color || "",
         backgroundColor: props.backgroundColor || "",
+        border : "5px solid "+ props.color ||""
       }}
     >
       {props.message}

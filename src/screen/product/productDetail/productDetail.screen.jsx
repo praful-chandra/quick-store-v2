@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "../../../components/button/button.component";
 
 export default function ProductDetail() {
+  const [size, sizeHandler] = useState(0);
+
+  const avaliableSize = ["S", "M", "L", "XL"];
+
   return (
     <div className="productdetail-wrapper">
       <div className="productdetail-image">
@@ -22,10 +26,21 @@ export default function ProductDetail() {
           potenti. Vivamus blandit imperdiet elit in suscipit. Cras nec erat a
           lorem viverra iaculis. In in auctor ipsum.
         </div>
-        <div className="productdetail-info-btn" >
-        <Button  message="Add to cart" />
+        <div className="productdetail-info-size">
+          {avaliableSize.map((s, i) => (
+            <div
+              className={`productdetail-info-size-item ${
+                size === i ? "productdetail-info-size-item-selected" : ""
+              }`}
+              onClick={() => sizeHandler(i)}
+            >
+              {s}
+            </div>
+          ))}
         </div>
-        
+        <div className="productdetail-info-btn">
+          <Button message="Add to cart" />
+        </div>
       </div>
     </div>
   );

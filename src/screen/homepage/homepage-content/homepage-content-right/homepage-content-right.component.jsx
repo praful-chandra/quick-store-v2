@@ -10,7 +10,7 @@ export default function Homepage_content_right() {
         <div className="homepage_content-right-wrapper" >
             <HeadingText text="New" size="6rem" />
             <ActionBar />
-            <div className="homepage_content-itemgrid">
+            <div className="products-itemgrid">
                 <ProductItem />
                 <ProductItem />
                 <ProductItem />

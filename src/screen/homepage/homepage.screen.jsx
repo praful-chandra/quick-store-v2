@@ -8,6 +8,7 @@ import WhatsNewScreen from "./whatsnew/whatsnew.screen";
 import CategoriesScreen from "./categories/categories.screen";
 import CampaignScreen from "./campaign/campaign.screen";
 
+
 class HomePage extends Component {
   renderTab = () => {
     switch (this.props.subNav.tab) {
@@ -27,6 +28,8 @@ class HomePage extends Component {
     }
   };
 
+
+
   render() {
     return (
       <div className="homepage-wrapper">
@@ -39,6 +42,7 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => ({
   subNav: state.subNav,
+  product : state.products.init
 });
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps,)(HomePage);

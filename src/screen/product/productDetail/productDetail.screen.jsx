@@ -2,32 +2,29 @@ import React, { useState } from "react";
 
 import Button from "../../../components/button/button.component";
 
-export default function ProductDetail() {
+import allProducts from "../../../DATA/products";
+
+export default function ProductDetail(props) {
   const [size, sizeHandler] = useState(0);
 
-  const avaliableSize = ["S", "M", "L", "XL"];
+
+ const prod = allProducts.filter(p => p._id === props.match.params.id)[0];
 
   return (
     <div className="productdetail-wrapper">
       <div className="productdetail-image">
         <img
-          src={require("../../../assets/dom-hill-nimElTcTNyY-unsplash.jpg")}
+          src={prod.image}
           alt="product"
         />
       </div>
       <div className="productdetail-info">
-        <div className="productdetail-info-title">Yellow Suit</div>
+        <div className="productdetail-info-title">{prod.name}</div>
         <div className="productdetail-info-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu
-          egestas metus, vel volutpat tellus. Nunc a auctor nunc, ac ultrices
-          mauris. Curabitur diam sem, ullamcorper ac eros sed, eleifend
-          fringilla lorem. Vestibulum convallis massa nec felis efficitur
-          ultricies. Mauris pretium neque et suscipit hendrerit. Suspendisse
-          potenti. Vivamus blandit imperdiet elit in suscipit. Cras nec erat a
-          lorem viverra iaculis. In in auctor ipsum.
+         {prod.description}
         </div>
         <div className="productdetail-info-size">
-          {avaliableSize.map((s, i) => (
+          {prod.avaliableSizes.map((s, i) => (
             <div
               className={`productdetail-info-size-item ${
                 size === i ? "productdetail-info-size-item-selected" : ""

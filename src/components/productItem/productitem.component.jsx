@@ -1,24 +1,31 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default function ProductItem(props) {
+ function ProductItem(props) {
+  const product = props.product;
+
+  
+
   return (
     <div className="productitem-wrapper">
       <div className="productitem-add">
         <FontAwesomeIcon icon={faPlusCircle} onClick={() => alert("add")} />
       </div>
-      <span onClick={() => alert("view")}>
+      <span onClick={() => props.history.push(`/product/${[product._id]}`)}>
         <img
-          src={require("../../assets/sherise-gsHnw5NMvtk-unsplash.jpg")}
+          src={product.image}
           alt="product"
           className="productitem-image"
         />
         <div className="productitem-details">
-          <div className="productitem-details-title">Brown Ban hat</div>
-          <div className="productitem-details-price">Rs. 2520</div>
+          <div className="productitem-details-title">{product.name}</div>
+          <div className="productitem-details-price">{product.price}</div>
         </div>
       </span>
     </div>
   );
 }
+
+export default withRouter(ProductItem);

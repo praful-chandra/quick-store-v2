@@ -1,25 +1,71 @@
-import React, { useState } from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSortAmountUpAlt} from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSortAmountUpAlt,
+  faSortAmountDownAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
-export default function ActionBar() {
+export default function ActionBar(props) {
   const [selectedItem, selectedItemHandler] = useState(0);
+  const items = ["latest", "price", "discount"];
+  const [direction, directionHandler] = useState(true);
 
-  const items = ["Date","price range", "size", "style", "type"];
+  useEffect(() => {
+    handleSort(selectedItem);
+  }, [direction]);
+
+
+  const handleSort = (index) => {
+    switch (index) {
+      case 0: {
+        selectedItemHandler(index);
+        props.sort({ createdAt: direction ? 1 : -1 });
+        break;
+      }
+
+      case 1: {
+        selectedItemHandler(index);
+        props.sort({ price: direction ? 1 : -1 });
+        break;
+      }
+      case 2: {
+        selectedItemHandler(index);
+        props.sort({ discount: direction ? 1 : -1 });
+        break;
+      }
+
+      default: {
+        selectedItemHandler(0);
+        props.sort({ createdAt: direction ? 1 : -1 });
+        break;
+      }
+    }
+  };
 
   return (
     <div className="actionbar-wrapper">
-      <div className="actionbar-head"> <FontAwesomeIcon icon={faSortAmountUpAlt} /> sort By</div>
+      <button
+        className="actionbar-head pointer"
+        onClick={() => {
+          directionHandler(!direction);
+        }}
+      >
+        {" "}
+        <FontAwesomeIcon
+          icon={direction ? faSortAmountUpAlt : faSortAmountDownAlt}
+        />{" "}
+        sort By
+      </button>
 
       {items.map((itm, index) => (
-        <div
+        <button
           className={`actionbar-sub ${
             selectedItem === index ? "actionbar-sub-selected" : ""
           }`}
-          onClick={()=>selectedItemHandler(index)}
+          onClick={() => handleSort(index)}
         >
           {itm}
-        </div>
+        </button>
       ))}
     </div>
   );

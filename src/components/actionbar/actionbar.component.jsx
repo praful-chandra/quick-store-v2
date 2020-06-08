@@ -8,35 +8,32 @@ import {
 export default function ActionBar(props) {
   const [selectedItem, selectedItemHandler] = useState(0);
   const items = ["latest", "price", "discount"];
-  const [direction, directionHandler] = useState(true);
-
-  useEffect(() => {
-    handleSort(selectedItem);
-  }, [direction]);
-
 
   const handleSort = (index) => {
     switch (index) {
       case 0: {
         selectedItemHandler(index);
-        props.sort({ createdAt: direction ? 1 : -1 });
+        props.sort({ type: "sort", value: "createdAt" });
         break;
       }
 
       case 1: {
         selectedItemHandler(index);
-        props.sort({ price: direction ? 1 : -1 });
+        props.sort({ type: "sort", value: "price" });
+
         break;
       }
       case 2: {
         selectedItemHandler(index);
-        props.sort({ discount: direction ? 1 : -1 });
+        props.sort({ type: "sort", value: "discount" });
+
         break;
       }
 
       default: {
         selectedItemHandler(0);
-        props.sort({ createdAt: direction ? 1 : -1 });
+        props.sort({ type: "sort", value: "createdAt" });
+
         break;
       }
     }
@@ -47,12 +44,12 @@ export default function ActionBar(props) {
       <button
         className="actionbar-head pointer"
         onClick={() => {
-          directionHandler(!direction);
+          props.directionHandler(!props.direction);
         }}
       >
         {" "}
         <FontAwesomeIcon
-          icon={direction ? faSortAmountUpAlt : faSortAmountDownAlt}
+          icon={props.direction ? faSortAmountUpAlt : faSortAmountDownAlt}
         />{" "}
         sort By
       </button>

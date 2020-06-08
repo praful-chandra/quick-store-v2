@@ -7,22 +7,37 @@ import HomePageComponentRight from "./homepage-content-right/homepage-content-ri
 import {getProductsAsync} from "../../../redux/action/product.action";
 
  function Homepage_Content(props) {
-    const [options,optionsHandler] = useState({sort : {createdAt : 1}});
-
+    const [options,optionsHandler] = useState({sort : "createdAt"});
+    const [direction,directionHandler] = useState({direction : true});
     
-    useEffect(()=>{
-        if(!props.products.init){
-            props.getProductsAsync(options);
-        }
-    })
+    const handleOption = option =>{
+        optionsHandler({
+            ...options,
+            [option.type] : option.value
+        })
+    }
+    
+    // useEffect(()=>{
+    //     if(!props.products.init){
+    //         props.getProductsAsync(options);
+    //     }
+    // })
 
-    console.log(options);
+    const getProductsAsync = props.getProductsAsync;
+
+    useEffect(()=>{
+        const filter = {
+            sort :{ [options.sort] : direction ? 1 : -1}
+        }
+        getProductsAsync(filter);
+        
+    },[direction,options])
     
 
     return (
         <div className="homepage_content-wrapper">
             <HomePageComponentLeft />
-            <HomePageComponentRight sort={optionsHandler} />
+            <HomePageComponentRight sort={handleOption} direction={direction} directionHandler={directionHandler}/>
         </div>
     )
 }

@@ -17,9 +17,7 @@ const getProducts = (products) =>({
 export const getProductsAsync = (options) =>async dispatch =>{
     dispatch(productLoading());
 
-    try{      
-        console.log(options);
-        
+    try{              
         const products = await axios.post("/api/get/products",options);
         dispatch(getProducts(products.data));
     }

@@ -1,32 +1,33 @@
 import React from "react";
-
+import {withRouter} from "react-router-dom";
 import Button from "../../button/button.component";
 
-export default function CategoryPopularDetails(props) {
+function CategoryPopularDetails(props) {
 
+  const products = props.products;
+
+  const buttonAction = ()=>{
+    props.history.push("/category/"+props.id)
+  }
 
   return (
     <div className="categorypopulardetail-wrapper">
-      <div className="categorypopulardetail-title">T-shirts</div>
+      <div className="categorypopulardetail-title">{props.title}</div>
       <div className="categorypopulardetail-productsgrid">
-        <img
-          src={require("../../../assets/elijah-m-henderson-jRA-yoDL68M-unsplash.jpg")}
-          alt="prod1"
-        />
-        <img
-          src={require("../../../assets/creaslim-BK4DswauUmo-unsplash.jpg")}
-          alt="prod2"
-        />
-        <img
-          src={require("../../../assets/ian-dooley-TT-ROxWj9nA-unsplash.jpg")}
-          alt="prod3"
-        />
-        <img
-          src={require("../../../assets/mbalimbali-JgMlVsGTzO4-unsplash.jpg")}
-          alt="prod4"
-        />
+
+      {
+        products.map(p=><img
+          key={p._id}
+          src={p.image}
+          alt={p.name}
+        />)
+      }
+
       </div>
-      <Button message="See More" />
+      <Button message="See More" cb={buttonAction} />
     </div>
   );
 }
+
+
+export default withRouter(CategoryPopularDetails);

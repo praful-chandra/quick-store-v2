@@ -8,6 +8,7 @@ import WhatsNewScreen from "./whatsnew/whatsnew.screen";
 import CategoriesScreen from "./categories/categories.screen";
 import CampaignScreen from "./campaign/campaign.screen";
 
+import {getCategoryAsync} from "../../redux/action/category.action";
 
 class HomePage extends Component {
   renderTab = () => {
@@ -28,7 +29,11 @@ class HomePage extends Component {
     }
   };
 
-
+componentDidMount(){
+if(!this.props.category){
+  this.props.getCategoryAsync();
+}
+}
 
   render() {
     return (
@@ -42,7 +47,8 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => ({
   subNav: state.subNav,
-  product : state.products.init
+  product : state.products.init,
+  category : state.category.init
 });
 
-export default connect(mapStateToProps,)(HomePage);
+export default connect(mapStateToProps,{getCategoryAsync})(HomePage);

@@ -14,7 +14,7 @@ export default function App() {
       <NavBar />
       <div className="App-body">
         <Route  exact path="/" component={HomepageScreen} />
-        <Route  exact path="/product" component={ProductsScreen} />
+        <Route  exact path="/category/:id" component={ProductsScreen} />
         <Route  exact path="/product/:id" component={ProductDetailScreen} />
       </div>
       <Footer />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortAmountUpAlt,
@@ -47,15 +47,15 @@ export default function ActionBar(props) {
           props.directionHandler(!props.direction);
         }}
       >
-        {" "}
         <FontAwesomeIcon
           icon={props.direction ? faSortAmountUpAlt : faSortAmountDownAlt}
-        />{" "}
+        />
         sort By
       </button>
 
       {items.map((itm, index) => (
         <button
+          key={"actionBar"+index}
           className={`actionbar-sub ${
             selectedItem === index ? "actionbar-sub-selected" : ""
           }`}

@@ -5,7 +5,7 @@ export function ProductLoading(props) {
 
   for (let i = 1; i <= props.length; i++) {
     data.push(
-      <div className="loading-product-wrapper" key={"loading"+i}>
+      <div className="loading-product-wrapper" key={"loading" + i}>
         <div className="loading-product-image"></div>
         <div className="loading-product-textbox"></div>
         <div className="loading-product-textbox"></div>
@@ -14,4 +14,31 @@ export function ProductLoading(props) {
   }
 
   return data;
+}
+
+export function CategoryThumbLoading(props) {
+  return (
+    <div className="categorypopularthumb-wrapper">
+      <div className="categorypopularthumb-image loading-categorythumb"></div>
+      <div className="categorypopularthumb-imageborder">
+        <div className="categorypopularthumb-imageborder-shadow loading-categorythumb-shadow"></div>
+      </div>
+    </div>
+  );
+}
+
+
+export function CategoryThumbDetailsLoading(props){
+  return(
+    <div className="categorypopulardetail-wrapper">
+    <div className="categorypopulardetail-title loading-categorydetail-title"></div>
+    <div className="categorypopulardetail-productsgrid">
+      <div className="loading-categorydetail-image"></div>
+      <div className="loading-categorydetail-image"></div>
+      <div className="loading-categorydetail-image"></div>
+      <div className="loading-categorydetail-image"></div>
+    </div>
+    
+  </div>
+  )
 }

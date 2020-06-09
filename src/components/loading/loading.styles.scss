@@ -33,6 +33,46 @@
 
     }
   }
+
+  &-categorythumb{
+    overflow: hidden;
+    background-color: $tabBackground;
+    position: relative;
+    @include loadAnim();
+
+    &-shadow{
+        animation: loadBlink 1s infinite alternate;
+    }
+  }
+
+  &-categorydetail{
+
+    &-title{
+      width: 20rem;
+      height: 7rem;
+      margin: 2rem 0;
+      overflow: hidden;
+      background-color: $tabBackground;
+      position: relative;
+      @include loadAnim();
+    }
+    &-image{
+
+      overflow: hidden;
+      background-color: $tabBackground;
+      position: relative;
+      @include loadAnim();
+    }
+  }
 }
 
+
+@keyframes loadBlink{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
 

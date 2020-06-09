@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HollowButton(props) {
   return (
-    <div
+    <button
       className="hollowbutton-wrapper"
       style={{
         width: props.size || "29rem",
@@ -11,8 +11,9 @@ export default function HollowButton(props) {
         padding : props.padding || "",
         margin : props.margin || ""
       }}
+      onClick={props.cb}
     >
       {props.message}
-    </div>
+    </button>
   );
 }

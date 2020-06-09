@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function CategoryPopularThumb() {
+export default function CategoryPopularThumb(props) {
     return (
         <div className="categorypopularthumb-wrapper" >
             
             <div className="categorypopularthumb-image">
-                <img src={require("../../../assets/calvin-lupiya--yPg8cusGD8-unsplash.jpg")} alt="" srcset=""/>
+                <img src={props.image} alt="" />
             </div>
             <div className="categorypopularthumb-imageborder">
             <div className="categorypopularthumb-imageborder-shadow"></div>

@@ -10,6 +10,8 @@
         padding: 2rem 3rem;
         cursor: pointer;
         transition: all 0.2s ease-in;
+        display: block;
+        background-color: #fff;
         &:hover{
             color: #fff;
             background-color: $primaryColor;

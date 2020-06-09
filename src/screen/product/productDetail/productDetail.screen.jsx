@@ -1,16 +1,24 @@
-import React, { useState } from "react";
-
+import React, { useState,useEffect} from "react";
+import axios from "axios"
 import Button from "../../../components/button/button.component";
 
-import allProducts from "../../../DATA/products";
 
 export default function ProductDetail(props) {
   const [size, sizeHandler] = useState(0);
+  const [prod,setProd] = useState(null);
+  const id = props.match.params.id;
+  useEffect(()=>{
+    (
+      async function(){
+        const product = await axios.post("/api/get/products",{only:{_id :id}});
+        setProd(product.data.products[0]);
+      }
+    )()
+  },[])
 
+ 
 
- const prod = allProducts.filter(p => p._id === props.match.params.id)[0];
-
-  return (
+  return prod !== null ?  (
     <div className="productdetail-wrapper">
       <div className="productdetail-image">
         <img
@@ -26,6 +34,7 @@ export default function ProductDetail(props) {
         <div className="productdetail-info-size">
           {prod.avaliableSizes.map((s, i) => (
             <div
+            key={prod._id + i}
               className={`productdetail-info-size-item ${
                 size === i ? "productdetail-info-size-item-selected" : ""
               }`}
@@ -40,5 +49,5 @@ export default function ProductDetail(props) {
         </div>
       </div>
     </div>
-  );
+  ) : <div></div>
 }

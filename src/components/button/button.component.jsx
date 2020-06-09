@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function Button(props) {
+ function Button(props) {
+  
   return (
-    <div
+    <button
       className="button-wrapper"
       style={{
         width: props.size || "20rem",
@@ -10,8 +11,12 @@ export default function Button(props) {
         backgroundColor: props.backgroundColor || "",
         border : "5px solid "+ props.color ||""
       }}
+      onClick={props.cb}
     >
       {props.message}
-    </div>
+    </button>
   );
 }
+
+
+export default Button;

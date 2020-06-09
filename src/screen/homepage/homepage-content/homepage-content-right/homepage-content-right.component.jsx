@@ -10,7 +10,7 @@ import { ProductLoading } from "../../../../components/loading/loading.component
 function Homepage_content_right(props) {
   return (
     <div className="homepage_content-right-wrapper">
-      <HeadingText text="New" size="6rem" />
+      {/* <HeadingText text="New" size="6rem" />  */}
       <ActionBar {...props} />
 
       <div className="products-itemgrid">
@@ -23,7 +23,7 @@ function Homepage_content_right(props) {
         )}
       </div>
       {props.products.totalCount > props.products.products.length ? (
-        <HollowButton message="Load More" />
+        <HollowButton message="Load More" cb={props.loadMore} />
       ) : null}
     </div>
   );

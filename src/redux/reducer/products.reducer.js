@@ -1,5 +1,7 @@
 import {PRODUCT_ACTIONS} from "../action/action.types";
 
+import {getProducts} from "../utils/product.utils";
+
 const INITIAL_STATE = {
     products : [],
     productLoading : false,
@@ -25,7 +27,7 @@ export default (state = INITIAL_STATE , action)=>{
 
         case PRODUCT_ACTIONS.GET_PRODUCTS :return {
             ...state,
-            ...action.payload
+            ...getProducts(state.products,action.payload)
         }
 
         default : return state

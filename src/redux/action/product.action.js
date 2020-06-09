@@ -9,17 +9,17 @@ const productLoadingDone = () =>({
     type : PRODUCT_ACTIONS.PRODUCT_LOADING_DONE
 })
 
-const getProducts = (products) =>({
+const getProducts = (products,append) =>({
     type : PRODUCT_ACTIONS.GET_PRODUCTS,
-    payload : products
+    payload : {products,append}
 })
 
-export const getProductsAsync = (options) =>async dispatch =>{
+export const getProductsAsync = (options,append) =>async dispatch =>{
     dispatch(productLoading());
 
     try{              
         const products = await axios.post("/api/get/products",options);
-        dispatch(getProducts(products.data));
+        dispatch(getProducts(products.data,append));
     }
     catch (err){
         console.log(err);        

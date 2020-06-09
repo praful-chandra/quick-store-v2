@@ -42,3 +42,28 @@ export function CategoryThumbDetailsLoading(props){
   </div>
   )
 }
+
+
+
+export function SmallBannerLoading(){
+  return(
+    <div className="smallbanner-wrapper loading-smallbanner" >
+            <div className="smallbanner-content">
+                <div className="smallbanner-content-title">
+                    Loading
+                </div>
+           
+
+            </div>
+        </div>
+  )
+}
+
+
+export function CampaignCardLoading(){
+  return (
+    <div className="campaigncard-wrapper loading-campaigncard">
+
+  </div>
+  )
+}

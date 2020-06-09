@@ -10,12 +10,12 @@ export default function WhatsNew() {
     return (
         <div className="whatsnew-wrapper">
             <SmallBanner />
-            <ItemBar />
+            {/* <ItemBar /> */}
             <div className="whatsnew-bigitem-wrapper">
                 <BigItem />
                 <BigItem />
             </div>
-            <ItemBar />
+            {/* <ItemBar /> */}
             <BigBanner />
         </div>
     )

@@ -32,13 +32,13 @@
       width: 100%;
       left: 0;
       top: 0;
-
       background-color: $backgroundColor;
-      height: 8rem;
+      height: 10rem;
       padding: 2rem 2rem 2rem 8rem;
       font-size: 2rem;
       outline: none;
       justify-items: center;
+      align-items: center;
     }
 
     &-btn {

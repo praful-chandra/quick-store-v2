@@ -11,7 +11,8 @@
         cursor: pointer;
         transition: all 0.2s ease-in;
         display: block;
-        background-color: #fff;
+        background-color: transparent;
+        outline: none;
         &:hover{
             color: #fff;
             background-color: $primaryColor;

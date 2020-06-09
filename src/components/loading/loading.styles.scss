@@ -64,6 +64,20 @@
       @include loadAnim();
     }
   }
+
+  &-smallbanner{
+    overflow: hidden;
+      background-color: $tabBackground;
+      position: relative;
+      @include loadAnim();
+  }
+
+  &-campaigncard{
+    overflow: hidden;
+    background-color: $tabBackground;
+    position: relative;
+    @include loadAnim();
+  }
 }
 
 

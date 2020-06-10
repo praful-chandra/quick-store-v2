@@ -13,7 +13,8 @@ import { changeTab } from "../../redux/action/subNav.action";
 function NavBar(props) {
   const [scroll, scrollHandler] = useState(window.scrollY);
   const [displaySearchBar, displaySearchBarHandler] = useState(false);
-
+  const [search , setSearch] = useState("");
+  
   //   useEffect(() => {
   //     if (window.innerWidth < 610) displaySearchBarHandler(false);
   //   }, []);
@@ -23,12 +24,13 @@ function NavBar(props) {
     
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {    
     e.preventDefault();
     if (window.innerWidth < 610 && !displaySearchBar)
     displaySearchBarHandler(true);
     else
-      alert("search")
+      props.history.push("/search"+search)
+      
   };
 
   const handlesearchBack = ()=>{
@@ -57,8 +59,10 @@ function NavBar(props) {
           type="search"
           name="search"
           id="search"
+          value={search}
+          onChange={e=>setSearch(e.target.value)}
           className="navbar-searchbar"
-          placeholder="Search for : items, categories, brands, etc"
+          placeholder="Search for : items"
         />
         {displaySearchBar ? (
          <> 
@@ -66,10 +70,12 @@ function NavBar(props) {
             type="search"
             name="search"
             id="search"
+            value={search}
+          onChange={e=>setSearch(e.target.value)}
             className="navbar-searchbar-mobile"
-            placeholder="Search for : items, categories, brands, etc"
+            placeholder="Search for : items"
           />
-            <button className="navbar-searchbar-back pointer" onClick={handlesearchBack}>
+            <button  className="navbar-searchbar-back pointer" onClick={handlesearchBack}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
          </>
@@ -77,7 +83,7 @@ function NavBar(props) {
 
       
 
-        <button className={`navbar-searchbar-btn ${displaySearchBar ? "navbar-searchbar-btn-mobile" : ""}  pointer`} type="submit">
+        <button  className={`navbar-searchbar-btn ${displaySearchBar ? "navbar-searchbar-btn-mobile" : ""}  pointer`} type="submit">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>

@@ -19,6 +19,7 @@ export default function BigItem(props) {
                     color="#fff"
                     padding="1rem"
                     margin="1rem"
+                    cb={props.cb}
                  />
             </div>
         </div>

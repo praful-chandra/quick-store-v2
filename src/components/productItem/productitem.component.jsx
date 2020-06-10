@@ -13,9 +13,9 @@ import {addToCart} from "../../redux/action/cart.action"
 
   return (
     <div className="productitem-wrapper">
-      <div className="productitem-add">
+     { props.add ?  <div className="productitem-add">
         <FontAwesomeIcon icon={faPlusCircle} onClick={() => props.addToCart(product)} />
-      </div>
+      </div> : null}
       <span onClick={() => props.history.push(`/product/${[product._id]}`)}>
         <img
           src={product.image}

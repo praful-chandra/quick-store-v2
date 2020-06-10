@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-
+import {withRouter} from "react-router-dom";
 import ItemBar from "../../../components/itembar/itembar.component";
 import SmallBanner from "../../../components/banner/smallBanner/smallBanner.component";
 import BigItem from "../../../components/bigitem/bigitem.component";
@@ -16,8 +16,8 @@ function WhatsNew(props) {
   const categoryInit = props.category.init;
   const getCategory = props.getCategoryAsync;
   useEffect(() => {
-    if (!saleInit) getSale();
-    if (!categoryInit) getCategory();
+    if (!saleInit) getSale({sort:{createdAt : -1}});
+    if (!categoryInit) getCategory({sort:{createdAt : -1}});
   }, [getSale, saleInit, categoryInit, getCategory]);
 
   let saleCount = 0;
@@ -29,14 +29,18 @@ function WhatsNew(props) {
       props.sale.sales.length > 0 &&
       saleCount < props.sale.sales.length
     ) {
+      const sale = props.sale.sales[saleCount++];
       return (
         <>
           <SmallBanner
-            key={props.sale.sales[saleCount]._id}
-            title={props.sale.sales[saleCount].name}
-            image={props.sale.sales[saleCount].image}
-          />{" "}
-          <ItemBar products={props.sale.sales[saleCount++].items} />{" "}
+            key={sale._id}
+            title={sale.name}
+            image={sale.image}
+            cb={()=>{
+              props.history.push(`/sale/${sale._id}`) 
+             }}
+          />
+          <ItemBar products={sale.items} />
         </>
       );
     }
@@ -53,15 +57,23 @@ function WhatsNew(props) {
       categoryCount < totalCategories
     ) {
       if (totalCategories - categoryCount >= 2) {
+       const cate1 = propCategories[categoryCount++];
+       const cate2 = propCategories[categoryCount++];
         return (
           <div className="whatsnew-bigitem-wrapper">
             <BigItem
-              title={propCategories[categoryCount].name}
-              image={propCategories[categoryCount++].image}
+              title={cate1.name}
+              image={cate1.image}
+               cb={()=>{
+              props.history.push(`/category/${cate1._id}`) 
+             }}
             />
             <BigItem
-              title={propCategories[categoryCount].name}
-              image={propCategories[categoryCount++].image}
+              title={cate2.name}
+              image={cate2.image}
+               cb={()=>{
+              props.history.push(`/category/${cate2._id}`) 
+             }}
             />
           </div>
         );
@@ -96,5 +108,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { getSaleAsync, getCategoryAsync })(
-  WhatsNew
+  withRouter(WhatsNew)
 );

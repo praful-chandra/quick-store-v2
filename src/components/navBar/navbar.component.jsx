@@ -117,7 +117,7 @@ function NavBar(props) {
               }
               
             </div>
-            <Button message="Checkout" cb={()=>{}}/>
+            <Button message="Checkout" cb={()=>{ setShowCart(false);props.history.push("/cart"); }}/>
           </div> : null
           }
 

@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react'
+import React,{useEffect} from 'react';
+import{withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import CampaignCard from "../../../components/campaigncard/campaignCard.component";
 
@@ -20,7 +21,7 @@ import {getCampaignAsync} from "../../../redux/action/campaign.action";
 
         props.campaign.campaigns.map(camp=>{
                     camp.items = camp.items.slice(0,4);
-                    data.push(<SmallBanner key={"campaignSmallBanner"+camp._id} title={camp.name} image={camp.image} />);
+                    data.push(<SmallBanner key={"campaignSmallBanner"+camp._id} title={camp.name} image={camp.image} cb={()=> props.history.push(`/campaign/${camp._id}`) } />);
 
                     const items = <div key={"campaignDiv"+camp._id}  className="campaign-grid">
                     {camp.items.map(itm=><CampaignCard key={"campaignItm"+itm._id} title={itm.name} image={itm.image} />)}
@@ -57,4 +58,4 @@ const mapStateToProps = state =>({
 })
 
 
-export default connect(mapStateToProps,{getCampaignAsync})(Campaign)
+export default connect(mapStateToProps,{getCampaignAsync})(withRouter(Campaign))

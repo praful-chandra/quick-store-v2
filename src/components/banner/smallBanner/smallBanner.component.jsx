@@ -20,6 +20,7 @@ export default function SmallBanner(props) {
                     color="#fff"
                     padding="1rem"
                     margin="1rem"
+                    cb={props.cb}
                  />
 
             </div>

@@ -7,7 +7,10 @@ import ProductsScreen from "./screen/product/products/products.screen";
 import ProductDetailScreen from "./screen/product/productDetail/productDetail.screen";
 import SearchScreen from "./screen/search/search.screen";
 import CartScreen from "./screen/cart/cart.screen";
+import SaleScreen from "./screen/sales/sales.screen";
+import CampaignScreen from "./screen/campaign/campaignDetail.screen";
 import Footer from "./components/footer/footer.component";
+
 
 export default function App() {
   return (
@@ -18,6 +21,8 @@ export default function App() {
         <Route  exact path="/search:search" component={SearchScreen} />
         <Route  exact path="/category/:id" component={ProductsScreen} />
         <Route  exact path="/product/:id" component={ProductDetailScreen} />
+        <Route  exact path="/sale/:id" component={SaleScreen} />
+        <Route  exact path="/campaign/:id" component={CampaignScreen} />
         <Route  exact path="/cart" component={CartScreen} />
       </div>
       <Footer />

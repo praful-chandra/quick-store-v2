@@ -18,7 +18,7 @@ function Homepage_content_right(props) {
           <ProductLoading length={5} />
         ) : (
           props.products.products.map((prod) => (
-            <ProductItem key={prod._id} product={prod} />
+            <ProductItem key={prod._id} product={prod} add={true}/>
           ))
         )}
       </div>

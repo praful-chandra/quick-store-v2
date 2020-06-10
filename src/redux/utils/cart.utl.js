@@ -42,3 +42,17 @@ export const decreaseItemCount = (cartItems, itemId) => {
   console.log(updatedItems);
   return [...updatedItems];
 };
+
+
+export const getTotalPrice = (items)=>{
+  let totalPrice = 0;
+
+  items.map(itm=>{
+    let discountedPrice = (itm.price - (itm.discount / 100) * itm.price);
+    totalPrice += discountedPrice * itm.quantity;
+    return itm;
+  })
+
+  return totalPrice;
+
+}

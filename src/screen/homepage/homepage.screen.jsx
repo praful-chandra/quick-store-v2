@@ -31,7 +31,7 @@ class HomePage extends Component {
 
 componentDidMount(){
 if(!this.props.category){
-  this.props.getCategoryAsync();
+  this.props.getCategoryAsync({sort:{createdAt : -1}});
 }
 }
 

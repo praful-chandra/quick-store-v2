@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import HeadingText from "../../../../components/headingText/headingtext.component";
+// import HeadingText from "../../../../components/headingText/headingtext.component";
 import ActionBar from "../../../../components/actionbar/actionbar.component";
 import ProductItem from "../../../../components/productItem/productitem.component";
 import HollowButton from "../../../../components/hollowButton/hollowbutton.component";

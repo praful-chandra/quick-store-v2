@@ -22,11 +22,11 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
         <div className="productitem-details">
           <div className="productitem-details-title">{product.name}</div>
 
-         {
+         { product.price ?
            product.discount > 0 ?  <div>
           <span className="productitem-details-discount">{"Rs."+product.price}</span>
           <span className="productitem-details-price">{"Rs."+(product.price - (product.discount / 100) * product.price)}</span>
-          </div> : <div className="productitem-details-price">{"Rs."+product.price}</div>
+          </div> : <div className="productitem-details-price">{"Rs."+product.price}</div> : null
          }
 
         </div>

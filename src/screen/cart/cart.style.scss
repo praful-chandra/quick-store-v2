@@ -1,0 +1,26 @@
+.cart{
+    &-wrapper{
+        width: 100%;
+        @include  flexer-vertical-center();
+    }
+
+    &-details{
+        &-itemwrapper{
+            font-family: "Righteous", cursive;
+
+            width: 100%;
+        }
+
+        &-item{
+            height: 15rem;
+            @include flexer-horizontal-spaceBetween();
+            margin: 2rem 0;
+            font-size: 3rem;
+            &-image{
+                width: 10%;
+                height: 100%;
+            }
+        }
+    }
+    
+}

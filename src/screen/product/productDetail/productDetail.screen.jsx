@@ -1,9 +1,11 @@
 import React, { useState,useEffect} from "react";
+import {connect} from "react-redux";
 import axios from "axios"
 import Button from "../../../components/button/button.component";
 
+import {addToCart} from "../../../redux/action/cart.action";
 
-export default function ProductDetail(props) {
+function ProductDetail(props) {
   const [size, sizeHandler] = useState(0);
   const [prod,setProd] = useState(null);
   const id = props.match.params.id;
@@ -45,9 +47,12 @@ export default function ProductDetail(props) {
           ))}
         </div>
         <div className="productdetail-info-btn">
-          <Button message="Add to cart" />
+          <Button message="Add to cart" cb={()=>props.addToCart(prod)} />
         </div>
       </div>
     </div>
   ) : <div></div>
 }
+
+
+export default connect(null,{addToCart})(ProductDetail)

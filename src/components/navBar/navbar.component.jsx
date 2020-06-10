@@ -6,15 +6,20 @@ import {
   faShoppingCart,
   faSearch,
   faArrowLeft,
+  faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 import { changeTab } from "../../redux/action/subNav.action";
+import HeadingText from "../headingText/headingtext.component";
+import Button from "../button/button.component";
+
+import {removeFromCart} from "../../redux/action/cart.action";
 
 function NavBar(props) {
   const [scroll, scrollHandler] = useState(window.scrollY);
   const [displaySearchBar, displaySearchBarHandler] = useState(false);
   const [search , setSearch] = useState("");
-  
+  const [showCart,setShowCart] = useState(false);
   //   useEffect(() => {
   //     if (window.innerWidth < 610) displaySearchBarHandler(false);
   //   }, []);
@@ -88,11 +93,33 @@ function NavBar(props) {
         </button>
       </form>
       <div className="navbar-user">
-        <div className="navbar-user-cart">
-          <FontAwesomeIcon icon={faShoppingCart} />
+        <button className={`navbar-user-cart ${showCart ? "navbar-user-cart-active" : ""}`} onClick={()=>setShowCart(s=>!s)} > 
+        <FontAwesomeIcon icon={faShoppingCart} />
           <span>Cart</span>
-          <span className="navbar-user-cart-count">9</span>
-        </div>
+          <span className="navbar-user-cart-count">{props.cart.items.length}</span>
+
+          
+        </button>
+        {
+            showCart ? <div className="navbar-user-cart-details">
+            <HeadingText text="Cart" size="3rem" color="#FF0053" />
+            <div className="navbar-user-cart-details-itemwrapper">
+              {
+                props.cart.items.map(itm=><div key={"cartItm"+itm._id} className="navbar-user-cart-details-item">
+                  <img  className="navbar-user-cart-details-item-image" src={itm.image} alt="product"/>
+
+                <div className="navbar-user-cart-details-item-title">{itm.name}</div>
+                <div className="navbar-user-cart-details-item-qty">{itm.quantity}</div>
+                <div className="navbar-user-cart-details-item-delete" onClick={()=>props.removeFromCart(itm._id)}>
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                </div>
+              </div>)
+              }
+              
+            </div>
+            <Button message="Checkout" cb={()=>{}}/>
+          </div> : null
+          }
 
         <div className="navbar-user-name">
           <span className="navbar-user-name-bold"> HELLO </span>
@@ -103,4 +130,8 @@ function NavBar(props) {
   );
 }
 
-export default connect(null, { changeTab })(withRouter(NavBar));
+const mapStateToProps = state =>({
+  cart : state.cart
+})
+
+export default connect(mapStateToProps, { changeTab,removeFromCart })(withRouter(NavBar));

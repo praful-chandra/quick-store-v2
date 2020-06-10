@@ -1,7 +1,10 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+
+import {addToCart} from "../../redux/action/cart.action"
 
  function ProductItem(props) {
   const product = props.product;
@@ -11,7 +14,7 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
   return (
     <div className="productitem-wrapper">
       <div className="productitem-add">
-        <FontAwesomeIcon icon={faPlusCircle} onClick={() => alert("add")} />
+        <FontAwesomeIcon icon={faPlusCircle} onClick={() => props.addToCart(product)} />
       </div>
       <span onClick={() => props.history.push(`/product/${[product._id]}`)}>
         <img
@@ -35,4 +38,4 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
   );
 }
 
-export default withRouter(ProductItem);
+export default connect(null,{addToCart})(withRouter(ProductItem));

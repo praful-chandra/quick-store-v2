@@ -49,6 +49,12 @@
     justify-content: space-evenly;
     flex-direction: column;
 }
+@mixin  flexer-vertical-spaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
 @mixin  flexer-vertical-start-spaceBetween {
     display: flex;
     align-items: flex-start;

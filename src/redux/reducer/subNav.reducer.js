@@ -1,7 +1,7 @@
 import {SUB_NAV_ACTIONS} from "../action/action.types";
 
 const INITIAL_STATE = {
-    tab : 0
+    tab : 1
 }
 
 

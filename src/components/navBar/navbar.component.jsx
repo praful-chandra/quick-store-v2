@@ -121,10 +121,10 @@ function NavBar(props) {
           </div> : null
           }
 
-        <div className="navbar-user-name">
+        {/* <div className="navbar-user-name">
           <span className="navbar-user-name-bold"> HELLO </span>
           user name
-        </div>
+        </div> */}
       </div>
     </div>
   );
